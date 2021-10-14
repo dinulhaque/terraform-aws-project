@@ -1,0 +1,65 @@
+
+dinul@🔥 simple_project % terraform plan                              
+╷
+│ Error: Incorrect attribute value type
+│ 
+│   on main.tf line 82, in resource "aws_route_table" "route_table":
+│   82:     route = [
+│   83:       {
+│   84:         cidr_block = "10.0.0.0/16"
+│   85:         gateway_id = aws_internet_gateway.dev-igw.id
+│   86:       }
+│   87:     ]
+│     ├────────────────
+│     │ aws_internet_gateway.dev-igw.id will be known only after apply
+│ 
+│ Inappropriate value for attribute "route": element 0: attributes "carrier_gateway_id", "destination_prefix_list_id", "egress_only_gateway_id", "instance_id", "ipv6_cidr_block",
+│ "local_gateway_id", "nat_gateway_id", "network_interface_id", "transit_gateway_id", "vpc_endpoint_id", and "vpc_peering_connection_id" are required.
+╵
+╷
+│ Error: Incorrect attribute value type
+│ 
+│   on main.tf line 112, in resource "aws_route_table" "public_route_table_1":
+│  112:     route = [
+│  113:       {
+│  114:         cidr_block = "10.0.3.0/24"
+│  115:         gateway_id = aws_internet_gateway.dev-igw.id
+│  116:       }
+│  117:     ]
+│     ├────────────────
+│     │ aws_internet_gateway.dev-igw.id will be known only after apply
+│ 
+│ Inappropriate value for attribute "route": element 0: attributes "carrier_gateway_id", "destination_prefix_list_id", "egress_only_gateway_id", "instance_id", "ipv6_cidr_block",
+│ "local_gateway_id", "nat_gateway_id", "network_interface_id", "transit_gateway_id", "vpc_endpoint_id", and "vpc_peering_connection_id" are required.
+╵
+╷
+│ Error: Unsupported argument
+│ 
+│   on main.tf line 118, in resource "aws_route_table" "public_route_table_1":
+│  118:     nat_gateway_id = aws_network_nat_gateway.nat_gw_1.id
+│ 
+│ An argument named "nat_gateway_id" is not expected here.
+╵
+╷
+│ Error: Reference to undeclared resource
+│ 
+│   on main.tf line 126, in resource "aws_route_table_association" "route_table_association-public-2":
+│  126:     route_table_id = aws_route_table.public-route-table.id
+│ 
+│ A managed resource "aws_route_table" "public-route-table" has not been declared in the root module.
+╵
+╷
+│ Error: Incorrect attribute value type
+│ 
+│   on main.tf line 135, in resource "aws_route_table" "public_route_table_2":
+│  135:     route = [
+│  136:       {
+│  137:         cidr_block = "10.0.4.0/24"
+│  138:         gateway_id = aws_internet_gateway.dev-igw.id
+│  139:       }
+│  140:     ]
+│     ├────────────────
+│     │ aws_internet_gateway.dev-igw.id will be known only after apply
+│ 
+│ Inappropriate value for attribute "route": element 0: attributes "carrier_gateway_id", "destination_prefix_list_id", "egress_only_gateway_id", "instance_id", "ipv6_cidr_block",
+│ "local_gateway_id", "nat_gateway_id", "network_interface_id", "transit_gateway_id", "vpc_endpoint_id", and "vpc_peering_connection_id" are required.
